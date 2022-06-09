@@ -16,6 +16,8 @@ ENV CHECKPOINT_CONFIG = "..."
 # this ensures rate limiting applies to the real client and not the reverse proxy
 ENV SHOULD_TRUST_REVERSE_PROXY = "true"
 
+ENV SHOULD_LOG_CONFIG_ON_START = "true"
+
 ENV PORT = 8080
 ```
 
