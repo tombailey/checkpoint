@@ -22,8 +22,8 @@ export default class HttpProxyMiddleware implements ProxyMiddleware {
       },
     };
 
-    const shouldRewritePrefix = isPrefixRoute && 'rewriteSourcePrefix' in route;
-    const shouldRewritePath = !isPrefixRoute && 'rewriteSourcePath' in route;
+    const shouldRewritePrefix = isPrefixRoute && "rewriteSourcePrefix" in route;
+    const shouldRewritePath = !isPrefixRoute && "rewriteSourcePath" in route;
     if (shouldRewritePrefix) {
       proxyConfig.pathRewrite = (path) =>
         path.replace(
@@ -31,10 +31,11 @@ export default class HttpProxyMiddleware implements ProxyMiddleware {
           route.rewriteSourcePrefix as string
         );
     } else if (shouldRewritePath) {
-      proxyConfig.pathRewrite = (path) => path.replace(
-        new RegExp(`^${route.sourcePath}$`),
-        route.rewriteSourcePath as string
-      );
+      proxyConfig.pathRewrite = (path) =>
+        path.replace(
+          new RegExp(`^${route.sourcePath}$`),
+          route.rewriteSourcePath as string
+        );
     }
 
     return createProxyMiddleware(proxyConfig);

@@ -8,7 +8,7 @@ export default class ExpressRateLimitMiddleware implements RateLimitMiddleware {
       windowMs: 60 * 1000,
       max: requestsPerMinute,
       standardHeaders: true,
-      message: "429 Too Many Requests"
+      message: "429 Too Many Requests",
     });
   }
 }

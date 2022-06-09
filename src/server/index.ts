@@ -6,8 +6,8 @@ import ConfigRouter from "../router/configRouter";
 import HttpProxyMiddleware from "../middleware/proxy/httpProxy";
 import ProxyMiddleware from "../middleware/proxy";
 import RateLimitMiddleware from "../middleware/rateLimit";
-import NotFoundRouter from "../router/notFoundRouter"
-import ExpressRateLimitMiddleware from "../middleware/rateLimit/expressRateLimit"
+import NotFoundRouter from "../router/notFoundRouter";
+import ExpressRateLimitMiddleware from "../middleware/rateLimit/expressRateLimit";
 
 export function createServer(config: Config) {
   const expressApp = express();
@@ -20,7 +20,8 @@ export function createServer(config: Config) {
   );
 
   const proxyMiddleware: ProxyMiddleware = new HttpProxyMiddleware();
-  const rateLimitMiddleware: RateLimitMiddleware = new ExpressRateLimitMiddleware();
+  const rateLimitMiddleware: RateLimitMiddleware =
+    new ExpressRateLimitMiddleware();
 
   new HealthRouter().registerRoutes(expressApp);
   new ConfigRouter(config, proxyMiddleware, rateLimitMiddleware).registerRoutes(
