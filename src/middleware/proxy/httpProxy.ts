@@ -33,7 +33,7 @@ export default class HttpProxyMiddleware implements ProxyMiddleware {
     } else if (shouldRewritePath) {
       proxyConfig.pathRewrite = (path) =>
         path.replace(
-          new RegExp(`^${route.sourcePath}$`),
+          new RegExp(`^${route.sourcePath}`),
           route.rewriteSourcePath as string
         );
     }
