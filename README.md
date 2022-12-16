@@ -7,7 +7,7 @@ This is a super simple and not very feature-complete API gateway. It focuses on 
 ## Getting started
 
 ```dockerfile
-FROM tombailey256/checkpoint:0.2.1
+FROM tombailey256/checkpoint:0.2.3
 
 # see below for config instructions
 ENV CHECKPOINT_CONFIG = "..."
